@@ -7,6 +7,7 @@
 //
 
 #import "PhotoCollectionVC.h"
+#import "PhotoCell.h"
 
 //@interface PhotoCollectionVC ()
 //
@@ -18,6 +19,8 @@
 
 - (void)viewDidLoad {
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.topItem.title = @"PhotoFun";
+    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -29,8 +32,8 @@
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *) collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFunCell" forIndexPath:indexPath];
-    
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFunCell" forIndexPath:indexPath];
+    cell.photoView.image = [UIImage imageNamed:@"tallBike"];
     return cell;
 }
 
